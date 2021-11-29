@@ -17,13 +17,17 @@
 </template>
 
 <script>
+import axios from "../utils/axios";
 export default {
   name: "header",
   setup() {
+    axios.get("/11231")
   },
 }
 </script>
 
 <style scoped>
-.el-header{padding: 0}
+.el-header {
+  padding: 0
+}
 </style>
