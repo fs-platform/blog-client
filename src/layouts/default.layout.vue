@@ -1,7 +1,9 @@
 <template>
   <div class="common-layout">
     <el-container class="content">
-      <default-header/>
+      <suspense>
+        <default-header></default-header>
+      </suspense>
       <el-main>body</el-main>
       <default-footer/>
     </el-container>
@@ -11,6 +13,7 @@
 <script>
 import defaultHeader from './header'
 import defaultFooter from "./footer"
+
 export default {
   name: "commonLayout",
   components: {
@@ -27,7 +30,8 @@ export default {
   text-align: center;
   line-height: 160px;
 }
-.common-layout,.content{
+
+.common-layout, .content {
   height: 100%;
   background: #f0f0f0;
   flex-direction: column;

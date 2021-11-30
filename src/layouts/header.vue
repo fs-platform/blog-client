@@ -4,25 +4,24 @@
         class="el-menu-demo"
         mode="horizontal"
     >
-      <el-menu-item index="1">Aron技术博客</el-menu-item>
-      <el-menu-item index="2">php</el-menu-item>
-      <el-menu-item index="3">go</el-menu-item>
-      <el-menu-item index="4">docker</el-menu-item>
-      <el-menu-item index="5">mysql</el-menu-item>
-      <el-menu-item index="6">redis</el-menu-item>
-      <el-menu-item index="7">nginx</el-menu-item>
+      <el-menu-item index="0">Aron技术博客</el-menu-item>
+      <el-menu-item :index="item.id" :key="item.id" v-for="item in categoryList">{{ item.name }}</el-menu-item>
     </el-menu>
     <div class="line"></div>
   </el-header>
 </template>
 
 <script>
-import axios from "../utils/axios";
+import category from "../models/category";
+import {reactive} from "vue";
+
 export default {
-  name: "header",
-  setup() {
-    axios.get("/11231")
-  },
+  name: "defaultHeader",
+  async setup() {
+    let {data} = await category()
+    let categoryList = reactive(data.CategoryList)
+    return {categoryList}
+  }
 }
 </script>
 
