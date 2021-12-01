@@ -4,7 +4,7 @@ import {ElMessage} from "element-plus"
 
 const http = axios.create({
     timeout: 5000,                                   //超时时间
-    baseURL: process.env["NODE_ENV"] === "development" ? "http://127.0.0.1:8080/api" : "http://www.fs-developer.com/api",        // 我们在请求接口的时候就不同写前面 会自动我们补全
+    baseURL: process.env["NODE_ENV"] === "development" ? "http://127.0.0.1:10025/api" : "http://www.fs-developer.com/api",        // 我们在请求接口的时候就不同写前面 会自动我们补全
     transformRequest: data => qs.stringify(data)    //post请求参数处理,防止post请求跨域
 })
 // http request 拦截器

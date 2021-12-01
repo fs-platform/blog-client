@@ -4,7 +4,10 @@
       <suspense>
         <default-header></default-header>
       </suspense>
-      <el-main>body</el-main>
+      <el-main>
+        <blog-list v-if="isShowList"></blog-list>
+        <router-view/>
+      </el-main>
       <default-footer/>
     </el-container>
   </div>
@@ -13,12 +16,19 @@
 <script>
 import defaultHeader from './header'
 import defaultFooter from "./footer"
+import blogList from "../pages/blogList";
 
 export default {
   name: "commonLayout",
   components: {
     defaultHeader,
-    defaultFooter
+    defaultFooter,
+    blogList
+  },
+  computed: {
+    isShowList() {
+      return this.$route.name === 'home';
+    }
   }
 }
 </script>

@@ -1,13 +1,11 @@
 <template>
-  <default-layout/>
+  <router-view ></router-view>
 </template>
 
 <script>
-import defaultLayout from './layouts/default.layout'
 export default {
   name: 'App',
   components: {
-    defaultLayout
   }
 }
 </script>
