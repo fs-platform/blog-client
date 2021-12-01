@@ -9,7 +9,7 @@
       <el-menu-item index="0" route="/">Aron技术博客</el-menu-item>
       <template v-if="categoryList.length">
         <template v-for="item in categoryList" :key="item.id">
-          <el-menu-item :index="item.id.toString()" :route="articleUrl(item.id)">
+          <el-menu-item :index="item.id.toString()" :route="articleUrl(item.name)">
             {{item.name}}
           </el-menu-item>
         </template>

@@ -4,10 +4,17 @@
       <suspense>
         <default-header></default-header>
       </suspense>
-      <el-main>
-        <blog-list v-if="isShowList"></blog-list>
-        <router-view/>
-      </el-main>
+      <div class="main-content">
+        <el-main>
+          <div class="leftContent">
+            <blog-list v-if="isShowList"></blog-list>
+            <router-view/>
+          </div>
+        </el-main>
+        <el-aside>
+          <sidebar/>
+        </el-aside>
+      </div>
       <default-footer/>
     </el-container>
   </div>
@@ -17,13 +24,14 @@
 import defaultHeader from './header'
 import defaultFooter from "./footer"
 import blogList from "../pages/blogList";
-
+import sidebar from "./siderbar";
 export default {
   name: "commonLayout",
   components: {
     defaultHeader,
     defaultFooter,
-    blogList
+    blogList,
+    sidebar
   },
   computed: {
     isShowList() {
@@ -46,5 +54,13 @@ export default {
   background: #f0f0f0;
   flex-direction: column;
 }
-
+.main-content{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.el-aside{
+  background: #fff;
+  margin: 20px;
+}
 </style>
