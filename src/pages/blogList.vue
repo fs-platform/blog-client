@@ -1,8 +1,8 @@
 <template>
   <el-card class="box-card">
     <ul v-infinite-scroll="load" class="infinite-list" style="overflow: auto">
-      <li v-for="item in articles" :key="item.id" class="infinite-list-item">
-        <div>{{ item.id }}</div>
+      <li v-for="(item,index) in articles" :key="item.id" class="infinite-list-item">
+        <div>{{ index+1 }}</div>
         <div>{{ item.name }}</div>
         <div>{{ item.author }}</div>
         <div>{{ item.like }}</div>
