@@ -5,7 +5,7 @@
         <default-header></default-header>
       </suspense>
       <el-row :gutter="20" justify="space-around">
-        <el-col :xs="20" :lg="15" :sm="20" md="20" :xl="15">
+        <el-col :xs="20" :lg="15" :sm="20" :md="20" :xl="15">
           <div class="leftContent">
             <blog-list v-if="isShowList"></blog-list>
             <router-view/>

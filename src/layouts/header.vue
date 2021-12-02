@@ -4,12 +4,12 @@
         class="el-menu"
         mode="horizontal"
         :default-active="activeIndex.toString()"
-        router="true"
+        :router=true
     >
       <el-menu-item index="0" route="/">Aron技术博客</el-menu-item>
       <template v-if="categoryList.length">
         <template v-for="item in categoryList" :key="item.id">
-          <el-menu-item :index="item.id.toString()" :route="articleUrl(item.name)">
+          <el-menu-item :index="item.id.toString()" :route="articleUrl(item)">
             {{item.name}}
           </el-menu-item>
         </template>
@@ -30,13 +30,15 @@ export default {
     let {data} = await category()
     activeIndex = 1
     let categoryList = reactive(data.CategoryList)
-
-    return {categoryList, activeIndex}
+    const handleOpen = (key, keyPath) => {
+      console.log(key, keyPath)
+    }
+    return {categoryList, activeIndex, handleOpen}
   },
   computed: {
     articleUrl(){
-      return (id)=>{
-          return "/articles/"+id
+      return (item)=>{
+          return "/articles/"+item.id
       }
     }
   }
