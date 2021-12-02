@@ -2,7 +2,7 @@
   <el-card class="box-card">
     <template #header>
       <div class="card-header">
-        <span>{{$route.params.id}}</span>
+        <span>{{$route.params.id ? $route.params.id : "php"}}</span>
       </div>
     </template>
     <ul v-infinite-scroll="load" class="infinite-list" style="overflow: auto">

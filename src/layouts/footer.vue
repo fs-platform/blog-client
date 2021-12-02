@@ -11,5 +11,5 @@ export default {
 </script>
 
 <style scoped>
- .el-footer{background: #fff;line-height: 60px}
+ .el-footer{background: #fff;line-height: 60px;}
 </style>
