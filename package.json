@@ -9,6 +9,9 @@
     "developemt": "vue-cli-service serve --mode development"
   },
   "dependencies": {
+    "@element-plus/icons": "^0.0.11",
+    "@kangc/v-md-editor": "^2.3.12",
+    "babel-runtime": "^6.26.0",
     "core-js": "^3.6.5",
     "element-plus": "^1.2.0-beta.4",
     "qs": "^6.10.1",

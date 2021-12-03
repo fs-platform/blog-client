@@ -4,7 +4,7 @@
       <suspense>
         <default-header></default-header>
       </suspense>
-      <el-row :gutter="20" justify="space-around">
+      <el-row class="main_body" :gutter="20" justify="space-around">
         <el-col :xs="20" :lg="15" :sm="20" :md="20" :xl="15">
           <div class="leftContent">
             <blog-list v-if="isShowList"></blog-list>
@@ -45,24 +45,15 @@ export default {
 </script>
 
 <style scoped>
-.el-main {
-  background-color: #e9eef3;
-  color: var(--el-text-color-primary);
-  text-align: center;
-  line-height: 160px;
-  font-size: 12px;
-}
-
 .common-layout, .content {
-  height: 100%;
-  background: #f0f0f0;
   flex-direction: column;
   justify-content:space-between;
-  font-size: 12px;
+  font-size: 13px;
+  min-height:100%
 }
 .sidebar{
   background: #fff;
   padding: 20px;
-  height: 100%;
+  margin: 20px;
 }
 </style>

@@ -1,21 +1,26 @@
 <template>
   <el-card class="box-card">
-    <ul v-infinite-scroll="load" class="infinite-list" style="overflow: auto">
-      <li v-for="(item,index) in articles" :key="item.id" class="infinite-list-item">
+    <el-scrollbar height="600px">
+      <div  v-for="(item,index) in articles" :key="item.id" class="infinite-list-item">
         <div>{{ index+1 }}</div>
-        <div>{{ item.name }}</div>
+        <div><router-link :to="link(item.id)">{{ item.name }}</router-link></div>
         <div>{{ item.author }}</div>
-        <div>{{ item.like }}</div>
+        <div>
+          <el-icon style="width: 1.2em">
+            <star style="position: absolute; top: 2px;left:6px" />
+          </el-icon>
+          {{ item.like }}
+        </div>
         <div>{{ this.formatDate(item.updated_at) }}</div>
-      </li>
-    </ul>
+      </div>
+    </el-scrollbar>
   </el-card>
 </template>
 
 
 <script>
 import {ref} from 'vue'
-import article from '../models/article'
+import {article} from '../models/article'
 
 export default {
   name: "blogList",
@@ -43,6 +48,13 @@ export default {
       load,
     }
   },
+  computed:{
+    link(){
+      return (id)=>{
+        return "/articleDetail/"+id
+      }
+    }
+  },
   methods: {
     async fetchData(id) {
       let {data} = await article(id)
@@ -68,20 +80,21 @@ export default {
 </script>
 
 <style scoped>
-.infinite-list {
-  height: 100%;
-  padding: 0;
-  margin: 0;
-  list-style: none;
+.el-card{
+  margin: 20px 0 20px 0;
 }
-.box-card{
-  margin-top: 20px;
+.infinite-list {
+  padding: 0;
+  list-style: none;
 }
 .infinite-list-item {
   display: flex;
   align-items: center;
   justify-content: space-around;
   height: 50px;
+  line-height: 50px;
+  border-bottom: 1px solid #ccc;
+  box-sizing: border-box;
 }
 
 .card-header {
