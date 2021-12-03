@@ -7,7 +7,7 @@
       </p>
       <p>Aron</p>
       <p>10.9k 声望</p>
-      <p>维护者 @ Aron.Yao@feisu.com</p>
+      <p>维护者 Aron.Yao@ 251109226@qq.com</p>
       <p>个人签名：保持好奇，求知若饥，终身编程</p>
     </div>
     <div class="section1">
@@ -18,7 +18,6 @@
         <el-tag type="danger">教程作者</el-tag>
         <el-tag type="warning">go爱好者</el-tag>
         <el-tag type="">php爱好者</el-tag>
-        <el-tag type="success">FS.COM 金牌讲师</el-tag>
       </p>
     </div>
   </template>
