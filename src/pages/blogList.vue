@@ -1,18 +1,20 @@
 <template>
   <el-card class="box-card">
     <el-scrollbar height="600px">
-      <div  v-for="(item,index) in articles" :key="item.id" class="infinite-list-item">
-        <div>{{ index+1 }}</div>
-        <div><router-link :to="link(item.id)">{{ item.name }}</router-link></div>
-        <div>{{ item.author }}</div>
-        <div>
+      <el-row justify="space-around" align="middle" :gutter="20"  v-for="(item,index) in articles" :key="item.id" class="infinite-list-item">
+        <div class="filed">{{ index+1 }}</div>
+        <div class="filed" >
+          <router-link :to="link(item.id)">{{ item.name }}</router-link>
+        </div>
+        <div class="filed">{{ item.author }}</div>
+        <div class="filed">
           <el-icon style="width: 1.2em">
             <star style="position: absolute; top: 2px;left:6px" />
           </el-icon>
           {{ item.like }}
         </div>
-        <div>{{ this.formatDate(item.updated_at) }}</div>
-      </div>
+        <div class="filed">{{ this.formatDate(item.updated_at) }}</div>
+      </el-row>
     </el-scrollbar>
   </el-card>
 </template>
@@ -88,9 +90,8 @@ export default {
   list-style: none;
 }
 .infinite-list-item {
-  display: flex;
+  display: block!important;
   align-items: center;
-  justify-content: space-around;
   height: 50px;
   line-height: 50px;
   border-bottom: 1px solid #ccc;
@@ -103,8 +104,22 @@ export default {
   align-items: center;
   height: 50px;
 }
-
+.el-col{
+  overflow: hidden;
+  text-overflow:ellipsis;
+}
 .el-card header {
   padding: 10px !important;
+}
+.filedItem{
+  width: 100px;
+}
+.filed{
+  width: 20%;
+  overflow: hidden;
+  text-overflow: ellipsis!important;
+  text-align: center;
+  display: inline-block;
+  white-space:nowrap
 }
 </style>

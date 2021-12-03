@@ -4,8 +4,8 @@
       <suspense>
         <default-header></default-header>
       </suspense>
-      <el-row class="main_body" :gutter="20" justify="space-around">
-        <el-col :xs="20" :lg="15" :sm="20" :md="20" :xl="15">
+      <el-row class="main_body" :gutter="10" justify="space-around">
+        <el-col :xs="24" :lg="16" :sm="24" :md="24" :xl="15">
           <div class="leftContent">
             <blog-list v-if="isShowList"></blog-list>
             <router-view/>
@@ -50,6 +50,9 @@ export default {
   justify-content:space-between;
   font-size: 13px;
   min-height:100%
+}
+.main_body{
+  overflow: hidden;
 }
 .sidebar{
   background: #fff;
