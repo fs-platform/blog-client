@@ -122,4 +122,10 @@ export default {
   display: inline-block;
   white-space:nowrap
 }
+.filed:nth-child(1){
+  width: 5%;
+}
+.filed:nth-child(2){
+  width: 35%;
+}
 </style>
