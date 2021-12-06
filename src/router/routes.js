@@ -14,17 +14,22 @@ const routes = [
     {
         path: '/',
         component: defaultLayout,
-        name:'home',
+        name: 'home',
         children: [
             {path: 'articles/:id', component: blogList, name: "articles"},
             {path: 'articleDetail/:article', component: blogDetail, name: "article"},
-            {path: 'support', component: support, name: "support"}
+            {
+                path: 'support',
+                component: support,
+                name: "support",
+                meta: {"title": "技术blog维护支持"}
+            }
         ]
     },
 ]
 
-export default createRouter({
+const router = createRouter({
     history: createWebHistory(),
     routes
 })
-
+export default router
