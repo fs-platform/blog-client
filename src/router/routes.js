@@ -3,6 +3,7 @@ import blogList from "../pages/blogList";
 import NotFound from "../pages/notFound"
 import defaultLayout from "../layouts/default.layout"
 import blogDetail from "../pages/blogDetail";
+import support from "../pages/support";
 
 const routes = [
     {
@@ -16,7 +17,8 @@ const routes = [
         name:'home',
         children: [
             {path: 'articles/:id', component: blogList, name: "articles"},
-            {path: 'articleDetail/:article', component: blogDetail, name: "article"}
+            {path: 'articleDetail/:article', component: blogDetail, name: "article"},
+            {path: 'support', component: support, name: "support"}
         ]
     },
 ]

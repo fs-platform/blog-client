@@ -10,10 +10,11 @@
       <template v-if="categoryList.length">
         <template v-for="item in categoryList" :key="item.id">
           <el-menu-item :index="item.id.toString()" :route="articleUrl(item)">
-            {{item.name}}
+            {{ item.name }}
           </el-menu-item>
         </template>
       </template>
+      <el-menu-item index="999" route="/support">support</el-menu-item>
     </el-menu>
     <div class="line"></div>
   </el-header>
@@ -21,14 +22,22 @@
 
 <script>
 import category from "../models/category";
-import {reactive, ref} from "vue";
+import {getCurrentInstance, reactive, ref} from "vue";
 
 export default {
   name: "defaultHeader",
   async setup() {
+    const {proxy} = getCurrentInstance()
     let activeIndex = ref('0')
     let {data} = await category()
-    activeIndex = 1
+    let name = proxy.$route.name
+    if (name === "support") {
+      activeIndex = "999"
+    } else if (name === "articles") {
+      activeIndex = proxy.$route.params.id
+    } else {
+      activeIndex = 0
+    }
     let categoryList = reactive(data.CategoryList)
     const handleOpen = (key, keyPath) => {
       console.log(key, keyPath)
@@ -36,9 +45,9 @@ export default {
     return {categoryList, activeIndex, handleOpen}
   },
   computed: {
-    articleUrl(){
-      return (item)=>{
-          return "/articles/"+item.id
+    articleUrl() {
+      return (item) => {
+        return "/articles/" + item.id
       }
     }
   }
